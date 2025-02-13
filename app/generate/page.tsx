@@ -6,11 +6,20 @@ export default function Request() {
 		<div className="fixed bg-[#101010] h-svh w-full overflow-hidden">
 			<div className="p-5 text-center">
 				<h1 className="text-5xl font-[family-name:var(--galada)] p-2">Valentify</h1>
-				<p>Now click below to fuck</p>
 				<div className="flex justify-center mt-10">
-					<button className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
-						Generate Playlist
-					</button>
+					<div className="space-y-4">
+						<p>Now click below to share with your partner (refresh when they login)</p>
+						<button className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={() => {
+
+							navigator.canShare({
+								title: "Valentify",
+								text: "Come get your AI generated valentine's day playlist!",
+								url: window.location.href
+							})
+						}}>
+							Share
+						</button>
+					</div>
 
 				</div>
 			</div>

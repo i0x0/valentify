@@ -10,7 +10,7 @@ export default function Home() {
     <div className="fixed bg-[#101010] h-svh w-full overflow-hidden">
       <div className="p-5 text-center">
         <h1 className="text-5xl font-[family-name:var(--galada)] p-2">Valentify</h1>
-        <p className="">Come get your AI generated valentine's day playlist!</p>
+        <p className="">Come get your AI generated valentine&apos;s day playlist!</p>
         <div className="flex justify-center mt-10">
 
           <Link href={"/api/connect"}>

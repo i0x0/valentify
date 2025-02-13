@@ -1,4 +1,4 @@
-import { CALLBACK, stateKey } from "@/lib/const";
+import { URL, stateKey } from "@/lib/const";
 import { AccessToken, SpotifyApi } from "@spotify/web-api-ts-sdk";
 import { deleteCookie, getCookie } from "cookies-next";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -23,7 +23,7 @@ export default async function handler(
 		deleteCookie(stateKey, { res, req })
 		const [err, data] = await safeAwait(axios.post<AccessToken>(`https://accounts.spotify.com/api/token`, {
 			code: code,
-			redirect_uri: CALLBACK,
+			redirect_uri: URL + '/api/callback',
 			grant_type: 'authorization_code'
 		}, {
 			headers: {
@@ -38,7 +38,7 @@ export default async function handler(
 		}
 		console.log(data?.data)
 		await res.redirect(307, "/generate")
-		const sdk = SpotifyApi.withAccessToken(process.env.SPOT_ID as unknown as string, data?.data as AccessToken, {})
+		SpotifyApi.withAccessToken(process.env.SPOT_ID as unknown as string, data?.data as AccessToken, {})
 
 
 	}

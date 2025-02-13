@@ -1,4 +1,4 @@
-import { __IS_DEV__, CALLBACK, SCOPES, stateKey } from '@/lib/const';
+import { SCOPES, stateKey } from '@/lib/const';
 import qs from "qs"
 import type { NextApiRequest, NextApiResponse } from 'next'
 import c from "node:crypto"
@@ -22,7 +22,7 @@ export default async function handler(
 		response_type: 'code',
 		client_id: process.env.SPOT_ID,
 		scope: SCOPES,
-		redirect_uri: CALLBACK,
+		redirect_uri: URL + '/api/callback',
 		state: state
 	}))
 }
