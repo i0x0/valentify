@@ -15,6 +15,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Valentify",
+  keywords: ["Valentify", "Valentine's Day", "Playlist", "AI", "Spotify"],
+  other: {
+    "theme-color": "#F51126",
+  },
+  icons: "https://https://valentify.vercel.app/heart.png",
   authors: [
     {
       name: "i0x0",
